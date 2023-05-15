@@ -46,6 +46,15 @@ function responseWithSuccess(data, message = '', statusCode = 200, responseType 
         data: data
     };
 }
+function responseWithError( message = '', statusCode = 500, responseType = '') {
+    return {
+        responseTime: Math.floor(Date.now() / 1000),
+        responseType: responseType,
+        status: statusCode,
+        response: 'error',
+        msg: message
+    };
+}
 
 
-module.exports = { readFile,uploadFile,appendFile,responseWithSuccess };
+module.exports = { readFile,uploadFile,appendFile,responseWithSuccess,responseWithError };
